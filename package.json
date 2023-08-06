@@ -1,0 +1,16 @@
+{
+  "name": "script_lgb_narbonne",
+  "version": "1.0.0",
+  "description": "Script for grab a place in restaurant \"LeGrandBuffetDeNarbonne\"",
+  "main": "index.js",
+  "repository": "https://github.com/SylvainLeDEV/script_LGB_Narbonne",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "script": "node script.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "20.7.3"
+  }
+}
