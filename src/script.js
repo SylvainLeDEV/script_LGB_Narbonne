@@ -12,6 +12,7 @@ const { connectToLGB } = require("./function-for-script/connectionUtils");
 const { selectDropdownMenus } = require("./function-for-script/dropDownUtils");
 const { checkMonth } = require("./function-for-script/checkMonthUtils");
 const { checkDayAvailable } = require("./function-for-script/checkDayAvailableUtils");
+const { clickContinueButton } = require("./function-for-script/continueButtonUtils");
 
 // --- DATA ---
 let CHOICE_FOR_DINER = JSON.parse(
@@ -43,25 +44,7 @@ async function startScrapping() {
     await checkDayAvailable(page);
 
     // ## -- Click on Continue : Phase 1 -- ##
-    // Utiliser page.$() pour obtenir le bouton à l'intérieur de la div
-    const continueButton = await page.$(".sc-fodVxV.cRYqUJ button");
-
-    // Vérifier si le bouton est trouvé
-    if (continueButton) {
-      // Cliquer sur le bouton
-      await continueButton.click();
-      console.log("Bouton 'Continuer' cliqué !");
-    } else {
-      console.log("Bouton 'Continuer' introuvable.");
-    }
-
-    //   if (continueButton) {
-    //     continueButton.click();
-    //     console.log("Bouton 'Continuer' cliqué !");
-    //   } else {
-    //     console.log("Bouton 'Continuer' introuvable.");
-    //   }
-    // };
+    await clickContinueButton(page);
 
     console.log("Script Lunched think close ctr + C");
   } catch (err) {
