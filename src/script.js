@@ -11,7 +11,7 @@ const {
 const { connectToLGB } = require("./function-for-script/connectionUtils");
 const { selectDropdownMenus } = require("./function-for-script/dropDownUtils");
 const { checkMonth } = require("./function-for-script/checkMonthUtils");
-const { checkButtons } = require("./function-for-script/checkButtonUtils");
+const { checkDayAvailable } = require("./function-for-script/checkDayAvailableUtils");
 
 // --- DATA ---
 let CHOICE_FOR_DINER = JSON.parse(
@@ -40,7 +40,7 @@ async function startScrapping() {
     await checkMonth(page, CHOICE_FOR_DINER);
   
     // ##-- Check Button Disabled or not : Phase 1 --##
-    await checkButtons(page);
+    await checkDayAvailable(page);
 
     // ## -- Click on Continue : Phase 1 -- ##
     // Utiliser page.$() pour obtenir le bouton à l'intérieur de la div

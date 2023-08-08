@@ -1,4 +1,4 @@
-async function checkButtons(page) {
+async function checkDayAvailable(page) {
     // Attendre que la div contenant les boutons soit visible
     await page.waitForSelector(".react-calendar__month-view__days");
   
@@ -22,4 +22,4 @@ async function checkButtons(page) {
     }
   }
   
-  module.exports = { checkButtons };
+  module.exports = { checkDayAvailable };
