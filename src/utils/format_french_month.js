@@ -17,7 +17,7 @@ function convertFrenchToEnglishDate(frenchDate) {
       return englishDate;
     } else {
       // Si le mois n'est pas trouvé, renvoie la chaîne d'origine telle quelle
-      return frenchDate;
+      return "Le mois n'est pas valide";
     }
   }
 
