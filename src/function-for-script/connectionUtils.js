@@ -5,6 +5,7 @@ async function connectToLGB(page, dataToken) {
   const { persist_lgb, token } = dataToken;
 
   await page.goto("https://reservation.lesgrandsbuffets.com/");
+  await page.waitForTimeout(500);
   await page.evaluate(() => {
     localStorage.clear();
   });
@@ -16,8 +17,9 @@ async function connectToLGB(page, dataToken) {
     token,
     persist_lgb
   );
+  await page.waitForTimeout(1000);
   await page.goto("https://reservation.lesgrandsbuffets.com/date-and-guests");
-  await page.setViewport({ width: 1080, height: 1024 });
+  // await page.setViewport({ width: 1080, height: 1024 });
 
   console.log("Connection to lgb/date-and-guests is ok");
 }
