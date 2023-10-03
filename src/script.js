@@ -11,8 +11,12 @@ const {
 const { connectToLGB } = require("./function-for-script/connectionUtils");
 const { selectDropdownMenus } = require("./function-for-script/dropDownUtils");
 const { checkMonth } = require("./function-for-script/checkMonthUtils");
-const { checkDayAvailable } = require("./function-for-script/checkDayAvailableUtils");
-const { clickContinueButton } = require("./function-for-script/continueButtonUtils");
+const {
+  checkDayAvailable,
+} = require("./function-for-script/checkDayAvailableUtils");
+const {
+  clickContinueButton,
+} = require("./function-for-script/continueButtonUtils");
 
 // --- DATA ---
 let CHOICE_FOR_DINER = JSON.parse(
@@ -39,12 +43,15 @@ async function startScrapping() {
 
     // ## -- Check month : Phase 1 -- ##
     await checkMonth(page, CHOICE_FOR_DINER);
-  
+
     // ##-- Check Button Disabled or not : Phase 1 --##
-    await checkDayAvailable(page);
+    await checkDayAvailable(page, CHOICE_FOR_DINER);
 
     // ## -- Click on Continue : Phase 1 -- ##
     await clickContinueButton(page);
+
+    // ##-- Check Button Disabled or not : Phase 2 --##
+    await checkDayAvailable(page, CHOICE_FOR_DINER);
 
     console.log("Script Lunched think close ctr + C");
   } catch (err) {
