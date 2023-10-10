@@ -72,8 +72,8 @@ async function startScrapping() {
       );
 
       // Fermez le navigateur et attendez un certain temps avant de recommencer
-      // await browser.close();
-      // await new Promise((resolve) => setTimeout(resolve, 10000)); // Attendez 60 secondes (1 minute) avant de continuer la prochaine itération
+      await browser.close();
+      await new Promise((resolve) => setTimeout(resolve, 10000)); // Attendez 60 secondes (1 minute) avant de continuer la prochaine itération
     }
   } catch (err) {
     console.error("An error occurred:", err);
