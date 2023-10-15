@@ -1,5 +1,11 @@
 async function checkDayAvailable(page, choiceForDiner, phase) {
   // Attendre que la div contenant les boutons soit visible
+  if (phase === 2) {
+    await page.waitForTimeout(500);
+    await page.goto(
+      "https://reservation.lesgrandsbuffets.com/date-and-guests?step=availabilities"
+    );
+  }
   await page.waitForSelector(".react-calendar__month-view__days");
 
   await page.waitForTimeout(700);
@@ -37,7 +43,13 @@ async function checkDayAvailable(page, choiceForDiner, phase) {
       // Comparer avec le chiffre 27 si le bouton n'est pas désactivé
       if (!isDisabled && parseInt(buttonText) === choiceForDiner.WHAT_DAY) {
         console.log(
-          `Phase 2 : La date cherché précisément ${buttonText} ${choiceForDiner.MONTH_AS_YOU_WHEN_DINER} est disponible.`
+          `
+             /!\
+            / | \
+           /  |  \
+          /___°___\
+          Phase 2 : La date cherché précisément ${buttonText} ${choiceForDiner.MONTH_AS_YOU_WHEN_DINER} est disponible.
+          `
         );
         await button.click();
         return true;
