@@ -21,7 +21,7 @@ async function checkDayAvailable(page, choiceForDiner, phase) {
     if (phase === 1) {
       if (isDisabled) {
         console.log(
-          `Phase 1 : La date ${buttonText} ${choiceForDiner.MONTH_AS_YOU_WHEN_DINER} n'est pas disponible.`
+          `Phase 1 : jour pas disponible.`
         );
       } else {
         console.log(

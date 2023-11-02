@@ -54,6 +54,10 @@ async function startScrapping() {
       const currentDate = new Date();
 
       // ##-- Check Button Disabled or not : Phase 2 --##
+      console.log(`
+
+      ---- DEBUT DU CHECK SI UNE DATE EST DISPO ----
+      `)
       if (await checkDayAvailable(page, CHOICE_FOR_DINER, 2)) {
         const currentDate = new Date();
         const formattedDate = currentDate.toLocaleString("fr-FR", {
@@ -67,9 +71,11 @@ async function startScrapping() {
         break; // Arrête la boucle lorsque la bonne date est trouvée
       }
 
-      console.log(
-        "One iteration completed. Waiting before the next iteration..."
-      );
+      console.log(`
+
+      ---- FIN DU CHECK ----
+      One iteration completed. Waiting before the next iteration...
+      `)
 
       // Fermez le navigateur et attendez un certain temps avant de recommencer
       await browser.close();
