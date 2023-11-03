@@ -17,7 +17,7 @@ async function connectToLGB(page, dataToken) {
     token,
     persist_lgb
   );
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(600);
   await page.goto("https://reservation.lesgrandsbuffets.com/date-and-guests");
   // await page.setViewport({ width: 1080, height: 1024 });
 
