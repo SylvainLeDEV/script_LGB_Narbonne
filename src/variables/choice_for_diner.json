@@ -1,6 +1,6 @@
 {
-    "WHEN_DINER":"midi",  
+    "WHEN_DINER":"soir",  
     "NUMBER_PEOPLE":"2",
     "MONTH_AS_YOU_WHEN_DINER" : "Novembre 2023",
-    "WHAT_DAY" : 24
+    "WHAT_DAY" : 25
 }
