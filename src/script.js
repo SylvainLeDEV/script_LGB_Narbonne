@@ -3,6 +3,7 @@ const fs = require("fs");
 
 // --- Utils ---
 const { updateTimestamp } = require("./utils/update_timeout");
+const { playNotificationSound } = require("./utils/play-sound");
 const {
   convertFrenchToEnglishDate,
 } = require("./utils/format_french_month.js");
@@ -57,7 +58,7 @@ async function startScrapping() {
       console.log(`
 
       ---- DEBUT DU CHECK SI UNE DATE EST DISPO ----
-      `)
+      `);
       if (await checkDayAvailable(page, CHOICE_FOR_DINER, 2)) {
         const currentDate = new Date();
         const formattedDate = currentDate.toLocaleString("fr-FR", {
@@ -68,6 +69,7 @@ async function startScrapping() {
           minute: "2-digit",
         });
         console.log(`Date trouvée à ${formattedDate}. Arrêt de la recherche.`);
+        playNotificationSound();
         break; // Arrête la boucle lorsque la bonne date est trouvée
       }
 
@@ -75,7 +77,7 @@ async function startScrapping() {
 
       ---- FIN DU CHECK ----
       One iteration completed. Waiting before the next iteration...
-      `)
+      `);
 
       // Fermez le navigateur et attendez un certain temps avant de recommencer
       await browser.close();

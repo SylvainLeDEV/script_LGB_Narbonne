@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "play-sound": "^1.1.6",
     "puppeteer": "20.7.3"
   }
 }

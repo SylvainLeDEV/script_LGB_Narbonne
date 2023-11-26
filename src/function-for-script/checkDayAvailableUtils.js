@@ -44,10 +44,6 @@ async function checkDayAvailable(page, choiceForDiner, phase) {
       if (!isDisabled && parseInt(buttonText) === choiceForDiner.WHAT_DAY) {
         console.log(
           `
-             /!\
-            / | \
-           /  |  \
-          /___°___\
           Phase 2 : La date cherché précisément ${buttonText} ${choiceForDiner.MONTH_AS_YOU_WHEN_DINER} est disponible.
           `
         );
