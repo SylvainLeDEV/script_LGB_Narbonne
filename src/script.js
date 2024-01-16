@@ -1,3 +1,5 @@
+require("dotenv").config({path: '../.env'});
+console.log(process.env.VARONE);
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 
@@ -23,6 +25,10 @@ const {
 let CHOICE_FOR_DINER = JSON.parse(
   fs.readFileSync("variables/choice_for_diner.json")
 );
+CHOICE_FOR_DINER.WHEN_DINER = process.env.VARONE || CHOICE_FOR_DINER.WHEN_DINER 
+CHOICE_FOR_DINER.NUMBER_PEOPLE = process.env.VARTWO || CHOICE_FOR_DINER.NUMBER_PEOPLE
+CHOICE_FOR_DINER.MONTH_AS_YOU_WHEN_DINER = process.env.VARTHREE || CHOICE_FOR_DINER.MONTH_AS_YOU_WHEN_DINER
+CHOICE_FOR_DINER.WHAT_DAY = process.env.VARFOUR || CHOICE_FOR_DINER.WHAT_DAY
 let DATA_TOKEN = JSON.parse(fs.readFileSync("data/persist_lgb_token.json"));
 let targetDate = "2023-10-10";
 updateTimestamp(targetDate);
@@ -52,7 +58,6 @@ async function startScrapping() {
 
       // ## -- Click on Continue : Phase 1 -- ##
       await clickContinueButton(page);
-      const currentDate = new Date();
 
       // ##-- Check Button Disabled or not : Phase 2 --##
       console.log(`
