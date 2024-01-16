@@ -9,6 +9,8 @@ async function selectDropdownMenus(page, choiceForDiner) {
     await selectMenus[1].select(convertToOption(choiceForDiner.WHEN_DINER));
     await page.waitForTimeout(1000);
     console.log("All options selected in the dropdown menus.");
+    console.log("Number people is ", choiceForDiner.NUMBER_PEOPLE )
+    console.log(`Date you want to eat : ${choiceForDiner.WHAT_DAY} ${choiceForDiner.MONTH_AS_YOU_WHEN_DINER} pour le ${choiceForDiner.WHEN_DINER} `)
   } else {
     console.log("No dropdown menus found. Please check your CSS selector.");
   }
